@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
-import { ValidateBoletoController } from './validate-boleto/validate-boleto.controller';
-import { ValidateBoletoModule } from './validate-boleto/validate-boleto.module';
-import { ValidateBoletoService } from './validate-boleto/validate-boleto.service';
+import { BoletoController } from './boleto/boleto.controller';
+import { BoletoModule } from './boleto/boleto.module';
+import { BoletoService } from './boleto/boleto.service';
 
 @Module({
-  imports: [ValidateBoletoModule],
-  controllers: [ValidateBoletoController],
-  providers: [ValidateBoletoService],
+  imports: [BoletoModule],
+  controllers: [BoletoController],
+  providers: [BoletoService],
 })
 export class AppModule {}
