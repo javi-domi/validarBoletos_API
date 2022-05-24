@@ -2,17 +2,17 @@ import { BadRequestException } from '@nestjs/common';
 import { BoletoHelpers } from './helpers';
 
 describe('Test helpers to parse a boleto', () => {
-  it('generateVerifyDigit should return true if the verifyDigit is right', () => {
-    expect(BoletoHelpers.generateVerifyDigit('84670000001')).toBe(7);
+  it('generateVerifyNumber should return true if the verifyDigit is right', () => {
+    expect(BoletoHelpers.generateVerifyNumber('84670000001')).toBe(7);
     expect(
-      BoletoHelpers.generateVerifyDigit(
+      BoletoHelpers.generateVerifyNumber(
         '846' + '0000001435900240200240500024384221010811',
       ),
     ).toBe(7);
-    expect(BoletoHelpers.generateVerifyDigit('100220176190')).toBe(0);
+    expect(BoletoHelpers.generateVerifyNumber('100220176190')).toBe(0);
   });
 
-  it("verifyFieldWithDigit should throw an erro if the verifyDigit ins't right", () => {
+  it("verifyFieldWithDigit should throw an erro if the verifyDigit isn't right", () => {
     BoletoHelpers.verifyFieldWithDigit({
       code: '84670000001',
       digit: 7,
@@ -27,7 +27,7 @@ describe('Test helpers to parse a boleto', () => {
     expect(err).toThrow(BadRequestException);
   });
 
-  it("verifyOurNumberDigit should throw an erro if the verifyDigit ins't right", () => {
+  it("verifyOurNumberDigit should throw an erro if the verifyDigit isn't right", () => {
     BoletoHelpers.verifyOurNumberDigit({ code: '04475617405', digit: 9 });
   });
 

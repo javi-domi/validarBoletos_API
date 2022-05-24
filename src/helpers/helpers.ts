@@ -1,7 +1,7 @@
 import { BadRequestException } from '@nestjs/common';
 
 export class BoletoHelpers {
-  public static generateVerifyDigit(code: string): number {
+  public static generateVerifyNumber(code: string): number {
     const aCode = code.split('').reverse();
     const sumDigits = aCode.reduce((acc, current, i) => {
       const factor = i % 2 === 0 ? 2 : 1;
@@ -28,7 +28,7 @@ export class BoletoHelpers {
     digit: number;
     field: string;
   }): void {
-    if (BoletoHelpers.generateVerifyDigit(code) !== digit)
+    if (BoletoHelpers.generateVerifyNumber(code) !== digit)
       throw new BadRequestException({
         data: {
           message: `The automatic verification failed for the ${field} field`,
