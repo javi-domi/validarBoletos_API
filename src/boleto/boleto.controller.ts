@@ -1,12 +1,13 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
+import { ValidationReturn } from '../interfaces/validationReturn';
 import { BoletoService } from './boleto.service';
 
 @Controller('boleto')
 export class BoletoController {
-  constructor(private readonly BoletoService: BoletoService) {}
+  constructor(private readonly boletoService: BoletoService) {}
 
-  @Get()
-  getHello(): string {
-    return this.BoletoService.getHelloBoleto();
+  @Get('/:boleto')
+  getBoletoValidation(@Param('boleto') boleto: string): ValidationReturn {
+    return this.boletoService.execute(boleto);
   }
 }
