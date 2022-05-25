@@ -4,9 +4,9 @@ Queremos poder através da aplicação consultar linhas digitáveis de boleto de
 
 ## Conteúdo
 
-(1) [Executando a aplicação com Docker](#executando-a-aplicação-com-docker)
-(2) [Executando a aplicação em modo de desenvolvimento](#executando-a-aplicação-em-modo-de-desenvolvimento)
-(3) [Testando a aplicação](#testando-a-aplicação)
+- [Executando a aplicação com Docker](#executando-a-aplicação-com-docker)
+- [Executando a aplicação em modo de desenvolvimento](#executando-a-aplicação-em-modo-de-desenvolvimento)
+- [Testando a aplicação](#testando-a-aplicação)
 
 ## Executando a aplicação com Docker
 
