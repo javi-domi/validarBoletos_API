@@ -2,8 +2,11 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { BoletoController } from './boleto.controller';
 import { BoletoService } from './boleto.service';
 
+jest.mock('./boleto.service');
+
 describe('BoletoController', () => {
   let controller: BoletoController;
+  let service: BoletoService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -12,9 +15,13 @@ describe('BoletoController', () => {
     }).compile();
 
     controller = module.get<BoletoController>(BoletoController);
+    service = module.get<BoletoService>(BoletoService);
   });
 
-  it('should return Hello Validate Boleto!', () => {
-    expect(controller.getHello()).toBe('Hello ValidateBoleto!');
+  it('should call boleto service ', () => {
+    const boleto = '21290001192110001210904475617405975870000002000';
+
+    controller.getBoletoValidation(boleto);
+    expect(service.execute).toHaveBeenCalledWith(boleto);
   });
 });
